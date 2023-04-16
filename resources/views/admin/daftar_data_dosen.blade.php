@@ -20,7 +20,7 @@
               <th>Name</th>
               <th>NIP</th>
               <th>Alamat</th>
-              <th>Angkatan</th>
+             
               <th>Status</th>
               <th>Action</th>
             </tr>
@@ -32,11 +32,11 @@
                 <td>{{ $post->name}}</td>
                 <td>{{ $post->nip}}</td>
                 <td>{{ $post->alamat}}</td>
-                <td>{{ $post->role }}</td>
+             
                 <td>{{ $post->role }}</td>
                 <td>
                     <div class="d-flex sweetalert">
-                        <a href="{{ url('/penugasan-edit', $post->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1 btn sweet-confirm"><i class="fa fa-pencil"></i></a>
+                        <a href="{{ url('/detail-datadosen', $post->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1 btn sweet-confirm"><i class="fa fa-pencil"></i></a>
                         <a href="{{ url('/penugasan-hapus', $post->id) }}" class="btn btn-danger shadow btn-xs sharp btn sweet-confirm1"><i class="fa fa-trash"></i></a>
                     </div>
                 </td>

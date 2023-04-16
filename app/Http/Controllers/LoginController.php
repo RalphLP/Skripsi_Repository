@@ -39,6 +39,14 @@ class LoginController extends Controller
                 return redirect()->intended('/dashbaord')->withSuccess('Signed In');
             }
         }
+
+        else if($request->role == 'Admin'){
+            $credentials = $request->only('email', 'password', 'role');
+            
+            if(Auth::attempt($credentials)){
+                return redirect()->intended('/dashbaord')->withSuccess('Signed In');
+            }
+        }
         
         $action = __FUNCTION__;
         // tambahkan pesan error untuk login gagal

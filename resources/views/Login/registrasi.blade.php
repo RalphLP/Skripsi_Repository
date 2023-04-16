@@ -39,6 +39,7 @@
                                 <option value="">-- Pilih Role --</option>
                                 <option value="Mahasiswa">Mahasiswa</option>
                                 <option value="Dosen">Dosen</option>
+                                <option value="Admin">Admin</option>
                             </select>
                         </div>
                         

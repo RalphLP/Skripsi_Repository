@@ -131,7 +131,7 @@
             <div class="card-header d-sm-flex d-block pb-0 border-0">
               <div class="mr-auto pr-3">
                 <h4 class="text-black font-w600 fs-20">Dosen Teknik Informatika</h4>
-                <p class="fs-13 mb-0 text-black">Lorem ipsum dolor sit amet, consectetur</p>
+                <p class="fs-13 mb-0 text-black"></p>
               </div>
               
             </div>

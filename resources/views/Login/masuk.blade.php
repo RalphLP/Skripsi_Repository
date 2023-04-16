@@ -13,7 +13,7 @@
                   <div class="text-center mb-3">
                     <a href="{!! url('/index'); !!}"><img src="{{ asset('images/logo-fullAI.png') }}" alt=""></a>
                   </div>
-                  <h4 class="text-center mb-4 text-white">Sign isn your account</h4>
+                  <h4 class="text-center mb-4 text-white">Sign in your account</h4>
                   <form action="{{ route('login.post') }}" method="post">
                     @csrf
                     <div class="form-group">
@@ -27,9 +27,10 @@
                     <div class="form-group">
                         <label class="mb-1 text-white" for="role"><strong>Role:</strong></label>
                         <select name="role" class="form-control" id="role" onchange="showForm()" name="role">
-                            <option value="">-- Pilih Role --</option>
+                            <option value="">-- Login Sebagai --</option>
                             <option value="Mahasiswa">Mahasiswa</option>
                             <option value="Dosen">Dosen</option>
+                            <option value="Admin">Admin</option>
                         </select>
                     </div>
                     <div class="form-row d-flex justify-content-between mt-4 mb-2">
