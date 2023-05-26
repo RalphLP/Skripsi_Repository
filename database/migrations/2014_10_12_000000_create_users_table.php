@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('alamat');
             $table->string('nim')->nullable();
             $table->string('nip')->nullable();
+            $table->enum('status', ['Pending', 'Verifikasi'])->default('Pending');
             $table->enum('role', ['Mahasiswa', 'Dosen', 'Admin'])->default('Mahasiswa');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

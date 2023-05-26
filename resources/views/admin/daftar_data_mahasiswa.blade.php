@@ -33,9 +33,23 @@
                 <td>{{ $post->nim}}</td>
                 <td>{{ $post->alamat}}</td>
                
-                <td>{{ $post->role }}</td>
+                <td>
+                  @if(strtolower($post->status) === 'verifikasi')
+                  <span class="badge light badge-success">
+                      <i class="fa fa-circle text-success mr-1"></i>
+                      {{ $post->status }}
+                  </span>
+              
+                  @elseif(strtolower($post->status) === 'pending')
+                  <span class="badge light badge-warning">
+                      <i class="fa fa-circle text-warning mr-1"></i>
+                      {{ $post->status }}
+                  </span>
+              @endif                                        
+              </td>
                 <td>
                     <div class="d-flex sweetalert">
+                      <a href="{{ url('/verifikasi-data1', $post->id) }}" class="btn btn-success shadow btn-xs sharp mr-1 btn sweet-confirm"><i class="fa fa-check-square-o"></i></a>
                         <a href="{{ url('/detail-datamahasiswa', $post->id) }}" class="btn btn-primary shadow btn-xs sharp mr-1 btn sweet-confirm"><i class="fa fa-pencil"></i></a>
                         <a href="{{ url('/detail-datadosen', $post->id) }}" class="btn btn-danger shadow btn-xs sharp btn sweet-confirm1"><i class="fa fa-trash"></i></a>
                     </div>

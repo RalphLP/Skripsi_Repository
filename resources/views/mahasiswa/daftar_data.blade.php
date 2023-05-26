@@ -51,12 +51,13 @@
                       <a href="{!! url('/repository-edit-v'); !!}/{{ $post->id }}" class="btn btn-primary shadow btn-xs sharp mr-1 btn sweet-confirm"><i class="fa fa-pencil"></i></a>
                       
                       @if($post->relationToUser->id == Auth::id())
-                          <form action="{!! url('/repository-hapus'); !!}/{{ $post->id }}" method="POST">
-                              @csrf
-                              @method('DELETE')
-                              <button type="submit" class="btn btn-danger shadow btn-xs sharp btn sweet-confirm1"><i class="fa fa-trash"></i></button>
-                          </form>
-                      @endif
+    <form action="{!! url('/repository-hapus'); !!}/{{ $post->id }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger shadow btn-xs sharp btn sweet-confirm1"><i class="fa fa-trash"></i></button>
+    </form>
+@endif
+
                   </div>
               </td>
               

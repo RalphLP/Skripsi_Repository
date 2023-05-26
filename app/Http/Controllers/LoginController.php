@@ -24,29 +24,56 @@ class LoginController extends Controller
             'role' => 'required'
         ]);
         
-        if($request->role == 'Mahasiswa'){
+        if ($request->role == 'Mahasiswa') {
             $credentials = $request->only('email', 'password', 'role');
-            
-            if(Auth::attempt($credentials)){
+        
+            $user = User::where('email', $credentials['email'])->first();
+            if ($user && $user->status == 'pending') {
+                return back()->with('error', 'Maaf, akun Anda masih dalam status verifikasi.');
+            }
+        
+            if ($user && $user->status == 'Verifikasi' && Auth::attempt($credentials)) {
                 return redirect()->intended('/dashbaord')->with('success', 'Signed In Berhasil');
+            } else {
+                return back()->with('error', 'Email atau password salah.');
             }
         }
+        
+        
         // tambahkan pesan error untuk masing-masing kondisi gagal login
-        else if($request->role == 'Dosen'){
+        else if ($request->role == 'Dosen') {
             $credentials = $request->only('email', 'password', 'role');
-            
-            if(Auth::attempt($credentials)){
-                return redirect()->intended('/dashbaord')->withSuccess('Signed In');
+        
+            $user = User::where('email', $credentials['email'])->first();
+            if ($user && $user->status == 'pending') {
+                return back()->with('error', 'Maaf, akun Anda masih dalam status verifikasi.');
+            }
+        
+            if ($user && $user->status == 'Verifikasi' && Auth::attempt($credentials)) {
+                return redirect()->intended('/dashbaord')->with('success', 'Signed In Berhasil');
+            } else {
+                return back()->with('error', 'Email atau password salah.');
             }
         }
+        
+        
 
-        else if($request->role == 'Admin'){
+        else if ($request->role == 'Admin') {
             $credentials = $request->only('email', 'password', 'role');
-            
-            if(Auth::attempt($credentials)){
-                return redirect()->intended('/dashbaord')->withSuccess('Signed In');
+        
+            $user = User::where('email', $credentials['email'])->first();
+            if ($user && $user->status == 'pending') {
+                return back()->with('error', 'Maaf, akun Anda masih dalam status verifikasi.');
+            }
+        
+            if ($user && $user->status == 'Verifikasi' && Auth::attempt($credentials)) {
+                return redirect()->intended('/dashbaord')->with('success', 'Signed In Berhasil');
+            } else {
+                return back()->with('error', 'Email atau password salah.');
             }
         }
+        
+        
         
         $action = __FUNCTION__;
         // tambahkan pesan error untuk login gagal

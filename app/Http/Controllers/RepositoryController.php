@@ -204,6 +204,33 @@ public function detail_data1($id)
         return view('mahasiswa.edit_data', compact('page_title', 'page_description','action','logo','post', 'users','logoText'));
     }
 
+    public function verifikasi_data1($id)
+    {
+       
+        $page_title = 'Edit Data';
+        $page_description = 'Some description for the page';
+        $logo = "images/logo.png";
+        $logoText = "images/logo-text.png";
+		$post   = User::whereId($id)->first();
+        $users = User::where('role', 'Dosen')->get();
+        $action = __FUNCTION__;
+
+        return view('dosen.verifikasi_data1', compact('page_title', 'page_description','action','logo','post', 'users','logoText'));
+    }
+    public function verifikasi_data2($id)
+    {
+       
+        $page_title = 'Edit Data';
+        $page_description = 'Some description for the page';
+        $logo = "images/logo.png";
+        $logoText = "images/logo-text.png";
+		$post   = User::whereId($id)->first();
+        $users = User::where('role', 'Dosen')->get();
+        $action = __FUNCTION__;
+
+        return view('dosen.verifikasi_data2', compact('page_title', 'page_description','action','logo','post', 'users','logoText'));
+    }
+
 public function daftar_mahasiswa()
 {
     $page_title = 'Data Mahasiswa';

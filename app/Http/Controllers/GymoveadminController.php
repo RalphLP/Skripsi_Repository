@@ -25,6 +25,13 @@ class GymoveadminController extends Controller
     return view('mahasiswa.tambah_data', compact('page_title', 'page_description', 'action', 'logo', 'logoText', 'users'));
 }
 
+public function user_update($id, $status)
+{
+    User::whereId($id)->update(['status'=>$status]);
+    return redirect('daftar-dosen')->with('success', 'Data berhasil diverifikasi');
+}
+
+
 
 public function repository_store(Request $request)
 {

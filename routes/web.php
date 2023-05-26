@@ -29,17 +29,20 @@ Route::post('/register-index', 'App\Http\Controllers\LoginController@store')->na
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/repository-daftar', 'App\Http\Controllers\RepositoryController@repository_daftar');
-    Route::get('/repository-hapus/{id}', 'App\Http\Controllers\RepositoryController@repository_hapus');
+    Route::delete('/repository-hapus/{id}', 'App\Http\Controllers\RepositoryController@repository_hapus');
     Route::get('/repository-edit-v/{id}', 'App\Http\Controllers\RepositoryController@repository_edit');
     Route::put('/repository-edit-s/{id}', 'App\Http\Controllers\RepositoryController@repository_update')->name('repos.edit');
     Route::get('/repository-view', 'App\Http\Controllers\GymoveadminController@repository_view');
     Route::post('/repository-store', 'App\Http\Controllers\GymoveadminController@repository_store')->name('repos.post');
     Route::get('/repository-download/{id}', 'App\Http\Controllers\GymoveadminController@repository_download')->name('repository.download');;
+    Route::get('/user-update/{id}/{status}', 'App\Http\Controllers\GymoveadminController@user_update')->name("update.status");
 
     Route::get('/daftar-bimbingan', 'App\Http\Controllers\RepositoryController@daftar_bimbingan');
     Route::get('/daftar-bimbingan2', 'App\Http\Controllers\RepositoryController@daftar_bimbingan2');
     Route::get('/detail-data1/{id}', 'App\Http\Controllers\RepositoryController@detail_data1');
     Route::get('/detail-data2/{id}', 'App\Http\Controllers\RepositoryController@detail_data2');
+    Route::get('/verifikasi-data1/{id}', 'App\Http\Controllers\RepositoryController@verifikasi_data1');
+    Route::get('/verifikasi-data2/{id}', 'App\Http\Controllers\RepositoryController@verifikasi_data2');
     Route::get('/dashbaord', 'App\Http\Controllers\GymoveadminController@dashboard_2');
 
     Route::get('/daftar-mahasiswa', 'App\Http\Controllers\RepositoryController@daftar_mahasiswa');
